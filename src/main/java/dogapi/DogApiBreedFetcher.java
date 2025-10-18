@@ -51,7 +51,7 @@ public class DogApiBreedFetcher implements BreedFetcher {
             }
 
         } catch (IOException e) {
-            throw new BreedNotFoundException("API failed:" + e.getMessage());
+            throw new BreedNotFoundException("API failed: " + e.getMessage());
         }
     }
 }
