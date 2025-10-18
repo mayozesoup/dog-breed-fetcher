@@ -36,7 +36,9 @@ public class DogApiBreedFetcher implements BreedFetcher {
 
         try {
             Response response = client.newCall(request).execute();
-            JSONObject responsebody = new JSONObject(response.body().string());
+            String thing =  response.body().string();
+            System.out.println(thing);
+            JSONObject responsebody = new JSONObject(thing);
 
             if (responsebody.getString("status").equals("success")) {
 
