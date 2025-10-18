@@ -51,10 +51,10 @@ public class DogApiBreedFetcher implements BreedFetcher {
                 return subBreeds;
             }
             else {
-                throw new BreedNotFoundException(breed);
+                throw new RuntimeException(breed);
             }
 
-        } catch (IOException |JSONException | BreedNotFoundException e) {
+        } catch (IOException |JSONException e) {
             throw new BreedNotFoundException(breed);
         }
     }
