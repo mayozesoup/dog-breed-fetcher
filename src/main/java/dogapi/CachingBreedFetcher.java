@@ -35,7 +35,7 @@ public class CachingBreedFetcher implements BreedFetcher {
             }
             catch (BreedNotFoundException e) {
                 callsMade++;
-                throw new BreedNotFoundException(breed);
+                throw new BreedNotFoundException("breed not found:" + breed);
             }
         }
     }
