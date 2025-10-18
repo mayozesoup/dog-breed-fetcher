@@ -36,9 +36,7 @@ public class DogApiBreedFetcher implements BreedFetcher {
 
         try {
             Response response = client.newCall(request).execute();
-            String thing =  response.body().string();
-            System.out.println(thing);
-            JSONObject responsebody = new JSONObject(thing);
+            JSONObject responsebody = new JSONObject(response.body().string());
 
             if (responsebody.getString("status").equals("success")) {
 
@@ -51,10 +49,10 @@ public class DogApiBreedFetcher implements BreedFetcher {
                 return subBreeds;
             }
             else {
-                throw new RuntimeException(breed);
+                throw new BreedNotFoundException(breed);
             }
 
-        } catch (IOException |JSONException e) {
+        } catch (IOException e) {
             throw new BreedNotFoundException(breed);
         }
     }
